@@ -22,8 +22,10 @@ jobs:
         run: npm ci
         working-directory: ./functions
       - name: Install Python Modules
+        run: python3 -m venv venv
+        working-directory: ./functions
+      - name: Activate Venv
         run: |
-          python3 -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
         working-directory: ./functions
