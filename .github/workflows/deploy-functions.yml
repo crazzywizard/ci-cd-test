@@ -25,6 +25,7 @@ jobs:
         run: |
           chmod +x gcloud_setup.sh
           ./gcloud_setup.sh 
+        working-directory: ./functions
       - name: Install Python Modules
         run: python3 -m venv venv
         working-directory: ./functions
