@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     container: crazzywizard/voice_essentials_image:latest
     steps:
-      - name: Check out code
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
         id: cache
@@ -26,3 +25,9 @@ jobs:
         run: pip install -r requirements.txt
       - name: Deploy to firebase
         run: python deploy.py --all
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
