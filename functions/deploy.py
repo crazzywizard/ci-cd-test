@@ -254,8 +254,8 @@ class deployFunction:
     def deployNodeFunction(self, function):
         """ Deploys node runtime cloud functions """
         if (os.getenv("CI_CD")):
-            os.system('firebase deploy --only functions:{} --token {}'.format(function,
-                                                                              os.getenv("FIREBASE_TOKEN")))
+            os.system('firebase deploy --token {} --only functions:{}'.format(
+                os.getenv("FIREBASE_TOKEN"), function))
         else:
             os.system('firebase deploy --only functions:{}'.format(function))
 
@@ -351,6 +351,11 @@ if args.all:
             firestoreTriggerDeploy(function, doc_path)
         else:
             deploy.deployPythonFunction(function)
+    if(os.getenv("CI_CD")):
+        os.system(
+            "firebase deploy --only functions --token{}".format(os.getenv("FIREBASE_TOKEN")))
+    else:
+        os.system("firebase deploy --only functions")
 elif name:
     if name in allPythonFunctions:
         if name in firestoreTriggerFunctions:
