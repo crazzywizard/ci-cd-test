@@ -23,8 +23,8 @@ jobs:
         working-directory: ./functions
       - name: Adding Gcloud to bash
         run: |
-          . ./root/google-cloud-sdk/completion.bash.inc
-          . ./root/google-cloud-sdk/path.bash.inc 
+          source /root/google-cloud-sdk/completion.bash.inc
+          source /root/google-cloud-sdk/path.bash.inc 
       - name: Install Python Modules
         run: python3 -m venv venv
         working-directory: ./functions
