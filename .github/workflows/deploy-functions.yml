@@ -15,7 +15,7 @@ jobs:
     - name: Cloud Functions Deploy
       id: Deploy
       uses: google-github-actions/deploy-cloud-functions@v0.1.2
-      working_directory: ./functions
+      working-directory: ./functions
       with:
         name: hello_name
         runtime: python37
