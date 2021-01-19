@@ -22,10 +22,11 @@ jobs:
         run: npm ci
         working-directory: ./functions
       - name: Install Python Modules
-        run: python3 -m venv venv
-        run: source venv/bin/activate
-        run: pip install -r requirements.txt
-        working-directory: ./functions
+        run: |
+        python3 -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+      - working-directory: ./functions
       - name: Deploy to firebase
         run: python deploy.py --all
         working-directory: ./functions
