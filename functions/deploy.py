@@ -112,7 +112,7 @@ class deployFunction:
 
     def setUp(self):
         """ Sets Gcloud account and project """
-        if(os.getenv("CI/CD")):
+        if(os.getenv("CI_CD")):
             client = self.create_ci_cd_key()
             os.system(
                 "gcloud auth activate-service-account {} --key-file=./ci_cd_key.json".format(client))
@@ -253,7 +253,11 @@ class deployFunction:
 
     def deployNodeFunction(self, function):
         """ Deploys node runtime cloud functions """
-        os.system('firebase deploy --only functions:{}'.format(function))
+        if (os.getenv("CI_CD")):
+            os.system('firebase deploy --only functions:{} --token {}'.format(function,
+                                                                              os.getenv("FIREBASE_TOKEN")))
+        else:
+            os.system('firebase deploy --only functions:{}'.format(function))
 
 
 print('Parsing Arguments')
