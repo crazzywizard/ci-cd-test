@@ -353,7 +353,7 @@ if args.all:
             deploy.deployPythonFunction(function)
     if(os.getenv("CI_CD")):
         os.system(
-            "firebase deploy --only functions --token{}".format(os.getenv("FIREBASE_TOKEN")))
+            "firebase deploy --only functions --token {}".format(os.getenv("FIREBASE_TOKEN")))
     else:
         os.system("firebase deploy --only functions")
 elif name:
