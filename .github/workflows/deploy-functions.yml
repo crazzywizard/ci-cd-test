@@ -26,7 +26,7 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-      - working-directory: ./functions
+        working-directory: ./functions
       - name: Deploy to firebase
         run: python deploy.py --all
         working-directory: ./functions
