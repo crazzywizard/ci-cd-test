@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-source /root/google-cloud-sdk/completion.bash.inc && /root/google-cloud-sdk/path.bash.inc
+. root/google-cloud-sdk/completion.bash.inc && . root/google-cloud-sdk/path.bash.inc
