@@ -26,6 +26,7 @@ jobs:
         working-directory: ./functions
       - name: Activate Venv
         run: |
+          ls
           source venv/bin/activate
           pip install -r requirements.txt
         working-directory: ./functions
