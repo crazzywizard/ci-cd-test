@@ -23,8 +23,10 @@ jobs:
         working-directory: ./functions
       - name: Install Python Modules
         run: pip install -r requirements.txt
+        working-directory: ./functions
       - name: Deploy to firebase
         run: python deploy.py --all
+        working-directory: ./functions
       - uses: actions/cache@v2
         with:
           path: node_modules
