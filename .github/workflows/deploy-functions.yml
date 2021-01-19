@@ -27,7 +27,7 @@ jobs:
       - name: Activate Venv
         run: |
           ls
-          source venv/bin/activate
+          . ./venv/bin/activate
           pip install -r requirements.txt
         working-directory: ./functions
       - name: Deploy to firebase
