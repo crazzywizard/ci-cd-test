@@ -29,6 +29,7 @@ jobs:
           ls
           . ./venv/bin/activate
           pip install -r requirements.txt
+          which gcloud
           python deploy.py --all
         working-directory: ./functions
       - uses: actions/cache@v2
