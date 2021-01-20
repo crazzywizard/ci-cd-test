@@ -13,7 +13,7 @@ jobs:
           service_account_key: ${{ secrets.GCLOUD }}
           export_default_credentials: true
       - name: Cloud Functions Deploy
-        run: gcloud functions deploy hello_gcs --runtime=python37 --entry_point=hello_gcs --trigger-resource account-linking-testing.appspot.com --trigger-event google.storage.object.finalize
+        run: gcloud functions deploy hello_gcs --runtime=python37 --entry-point=hello_gcs --trigger-resource account-linking-testing.appspot.com --trigger-event google.storage.object.finalize
         id: Deploy
       - name: test
         run: curl "${{ steps.deploy.outputs.url }}"
