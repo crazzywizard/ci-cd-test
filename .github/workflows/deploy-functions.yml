@@ -16,9 +16,11 @@ jobs:
       id: Deploy
       uses: google-github-actions/deploy-cloud-functions@v0.1.2
       with:
-        name: hello_name
+        name: hello_gcs
         runtime: python37
-        entry_point: hello_name
+        entry_point: hello_gcs
         source_dir: functions/
+        event_trigger_type: providers/cloud.storage/eventTypes/object.finalize
+        event_trigger_resource: projects/_/buckets/account-linking-testing.appspot.com/objects/*
     - name: test
       run: curl "${{ steps.deploy.outputs.url }}"
