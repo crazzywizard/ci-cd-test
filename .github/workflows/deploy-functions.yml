@@ -21,6 +21,6 @@ jobs:
         entry_point: hello_gcs
         source_dir: functions/
         event_trigger_type: providers/cloud.storage/eventTypes/object.finalize
-        event_trigger_resource: projects/_/buckets/account-linking-testing.appspot.com/objects/*
+        event_trigger_resource: projects/_/buckets/account-linking-testing.appspot.com
     - name: test
       run: curl "${{ steps.deploy.outputs.url }}"
