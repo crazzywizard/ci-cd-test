@@ -15,10 +15,10 @@ jobs:
     - name: Cloud Functions Deploy
       id: Deploy
       uses: google-github-actions/deploy-cloud-functions@v0.1.2
-      working-directory: ./functions
       with:
         name: hello_name
         runtime: python37
         entry_point: hello_name
+        source_dir: functions/
     - name: test
       run: curl "${{ steps.deploy.outputs.url }}"
