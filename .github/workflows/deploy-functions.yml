@@ -19,7 +19,7 @@ jobs:
         name: hello_gcs
         runtime: python37
         entry_point: hello_gcs
-        project_id: account-linkin-testing.appspot.com
+        project_id: account-linking-testing.appspot.com
         source_dir: functions/
         event_trigger_type: providers/cloud.storage/eventTypes/object.finalize
         event_trigger_resource: projects/_/buckets/account-linking-testing.appspot.com
